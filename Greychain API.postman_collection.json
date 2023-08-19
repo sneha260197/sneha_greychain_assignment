@@ -1,0 +1,358 @@
+{
+	"info": {
+		"_postman_id": "b72da79b-1991-4f24-bf48-5796a8b63c7b",
+		"name": "Greychain API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19448374"
+	},
+	"item": [
+		{
+			"name": "getAllLoans",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/loan-store/loans",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"loan-store",
+						"loans"
+					]
+				},
+				"description": "Get details of all loans stored in a loan store."
+			},
+			"response": [
+				{
+					"name": "getLoanDetails",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/loan-store/loans",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"loan-store",
+								"loans"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 19 Aug 2023 10:05:41 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"loanID\": \"L1\",\n        \"customerID\": \"C1\",\n        \"lenderID\": \"LEN1\",\n        \"amount\": 10000,\n        \"remainingAmount\": 10000,\n        \"paymentDate\": \"2023-06-05\",\n        \"interestPerDay\": 0.0001,\n        \"dueDate\": \"2023-07-05\",\n        \"penaltyPerDay\": 0.0001,\n        \"cancel\": false\n    },\n    {\n        \"loanID\": \"L2\",\n        \"customerID\": \"C1\",\n        \"lenderID\": \"LEN1\",\n        \"amount\": 20000,\n        \"remainingAmount\": 5000,\n        \"paymentDate\": \"2023-06-01\",\n        \"interestPerDay\": 0.0001,\n        \"dueDate\": \"2023-08-05\",\n        \"penaltyPerDay\": 0.0001,\n        \"cancel\": false\n    },\n    {\n        \"loanID\": \"L3\",\n        \"customerID\": \"C2\",\n        \"lenderID\": \"LEN2\",\n        \"amount\": 50000,\n        \"remainingAmount\": 30000,\n        \"paymentDate\": \"2023-04-04\",\n        \"interestPerDay\": 0.0002,\n        \"dueDate\": \"2023-05-04\",\n        \"penaltyPerDay\": 0.0002,\n        \"cancel\": false\n    },\n    {\n        \"loanID\": \"L4\",\n        \"customerID\": \"C3\",\n        \"lenderID\": \"LEN2\",\n        \"amount\": 50000,\n        \"remainingAmount\": 30000,\n        \"paymentDate\": \"2023-04-04\",\n        \"interestPerDay\": 0.0002,\n        \"dueDate\": \"2023-05-04\",\n        \"penaltyPerDay\": 0.0002,\n        \"cancel\": false\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "getAggregateGroupByLender",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/loan-store/aggregateByLender",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"loan-store",
+						"aggregateByLender"
+					]
+				},
+				"description": "Get aggregation on the remaining amount, Interest and Penalty Group by\r\nLender."
+			},
+			"response": [
+				{
+					"name": "getAggregateGroupByLender",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/loan-store/aggregateByLender",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"loan-store",
+								"aggregateByLender"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 19 Aug 2023 10:05:53 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"lenderID\": \"LEN1\",\n        \"aggregateAmount\": 15000.000399999999\n    },\n    {\n        \"lenderID\": \"LEN2\",\n        \"aggregateAmount\": 60000.000799999994\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "getAggregateGroupByInterest",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/loan-store/aggregateByInterest",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"loan-store",
+						"aggregateByInterest"
+					]
+				},
+				"description": "Get aggregation on the remaining amount, Interest and Penalty Group by\r\nInterest."
+			},
+			"response": [
+				{
+					"name": "getAggregateGroupByInterest",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/loan-store/aggregateByInterest",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"loan-store",
+								"aggregateByInterest"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 19 Aug 2023 10:06:08 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"interestPerDay\": 0.0001,\n        \"aggregateAmount\": 15000.000399999999\n    },\n    {\n        \"interestPerDay\": 0.0002,\n        \"aggregateAmount\": 60000.000799999994\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "getAggregateGroupByCustomerID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/loan-store/aggregateByCustomerID",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"loan-store",
+						"aggregateByCustomerID"
+					]
+				},
+				"description": "Get aggregation on the remaining amount, Interest and Penalty Group by Customer ID."
+			},
+			"response": [
+				{
+					"name": "getAggregateGroupByCustomerID",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/loan-store/aggregateByCustomerID",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"loan-store",
+								"aggregateByCustomerID"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 19 Aug 2023 10:06:29 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"customerID\": \"C1\",\n        \"aggregateAmount\": 15000.000399999999\n    },\n    {\n        \"customerID\": \"C2\",\n        \"aggregateAmount\": 30000.000399999997\n    },\n    {\n        \"customerID\": \"C3\",\n        \"aggregateAmount\": 30000.000399999997\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "addLoan",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"loanID\":\"1\",\r\n    \"customerID\":\"C1\",\r\n    \"lenderID\":\"L1\",\r\n    \"amount\":1000,\r\n    \"remainingAmount\":800,\r\n    \"paymentDate\":\"2023-09-10\",\r\n    \"interestPerDay\":2,\r\n    \"dueDate\":\"2023-10-10\",\r\n    \"penaltyPerDay\":5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/loan-store/addLoan",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"loan-store",
+						"addLoan"
+					]
+				},
+				"description": "Check for crossed due date & loan overdue while adding new loan entry in database."
+			},
+			"response": [
+				{
+					"name": "addLoan",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"loanID\":\"1\",\r\n    \"customerID\":\"C1\",\r\n    \"lenderID\":\"L1\",\r\n    \"amount\":1000,\r\n    \"remainingAmount\":800,\r\n    \"paymentDate\":\"2023-09-10\",\r\n    \"interestPerDay\":2,\r\n    \"dueDate\":\"2023-10-10\",\r\n    \"penaltyPerDay\":5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/loan-store/loans",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"loan-store",
+								"loans"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 19 Aug 2023 09:09:48 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"loanID\": \"1\",\n    \"customerID\": \"C1\",\n    \"lenderID\": \"L1\",\n    \"amount\": 1000,\n    \"remainingAmount\": 800,\n    \"paymentDate\": \"2023-09-10\",\n    \"interestPerDay\": 2,\n    \"dueDate\": \"2023-10-10\",\n    \"penaltyPerDay\": 5,\n    \"cancel\": false\n}"
+				}
+			]
+		}
+	]
+}
